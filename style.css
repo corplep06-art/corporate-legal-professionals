@@ -11,3 +11,34 @@
 .footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:27px 7%;background:var(--deep);color:#dce5df}.brand-footer{color:#fff}.brand-footer .brand-icon{background:var(--gold);color:var(--deep)}.brand-footer .brand-text small{color:#c2cec6}.footer>p,.footer>small{font-size:10px;color:#c2cec6;margin:0}
 @media(max-width:900px){.header{padding:0 5%}.nav{gap:16px}.section{padding:68px 6%}.hero{padding:75px 7%}.service-grid{grid-template-columns:repeat(2,1fr)}.person{grid-template-columns:60px 1fr;padding:18px 15px}.person-mark{width:56px;height:56px;font-size:22px}.footer>p{display:none}}
 @media(max-width:680px){.header{height:74px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;padding:16px 6% 22px;box-shadow:0 12px 15px #0000000d;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:11px 0}.nav .nav-cta{text-align:center;margin-top:8px}.hero{min-height:550px;padding:68px 6%}.hero h1{font-size:clamp(36px,10vw,51px)}.hero-foot{left:6%;right:auto}.trust-strip{grid-template-columns:1fr 1fr;padding:22px 6%;gap:20px}.trust-strip div{padding-left:12px}.trust-strip div:nth-child(2){border-right:0}.two-col,.contact{grid-template-columns:1fr;gap:25px}.section-heading{display:block}.section-heading>p{margin-top:15px}.service-grid,.team-grid,.approach-grid{grid-template-columns:1fr}.service-card{min-height:230px}.person{grid-template-columns:64px 1fr}.person-mark{width:60px;height:60px}.contact-form{padding:24px 18px}.footer{align-items:flex-start;flex-direction:column}.footer>p{display:block}}
+
+
+/* Added sections: service pathways, insights and FAQs */
+.service-detail{background:#fff}
+.detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.detail-grid article{padding:25px;background:#fbfaf6;border:1px solid var(--line);border-radius:3px;transition:transform .2s,box-shadow .2s}
+.detail-grid article:hover{transform:translateY(-3px);box-shadow:0 12px 25px #17382c12}
+.detail-grid article>span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#eae5d7;color:#886832;font-size:11px;font-weight:700}
+.detail-grid h3,.insight-grid h3{font-size:17px;line-height:1.4;color:var(--green);margin:16px 0 8px}
+.detail-grid p,.insight-grid p{font-size:12px;color:var(--muted);line-height:1.75;margin:0 0 16px}
+.detail-grid a,.insight-grid a{font-size:11px;color:#92713b;font-weight:700;text-decoration:none}
+.detail-grid a:hover,.insight-grid a:hover{color:var(--green);text-decoration:underline}
+.insights{background:var(--cream)}
+.insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.insight-grid article{background:#fff;border:1px solid var(--line);padding:25px;display:flex;flex-direction:column;align-items:flex-start}
+.insight-tag{font-size:9px;letter-spacing:.12em;color:#92713b;font-weight:700}
+.insight-grid h3{font-size:19px;margin-top:15px}
+.insight-grid article>a{margin-top:auto}
+.insight-note{font-size:10px;color:var(--muted);margin:22px 0 0;max-width:850px}
+.faq{background:#fff}
+.faq-list{max-width:900px;border-top:1px solid var(--line)}
+.faq-list details{border-bottom:1px solid var(--line);padding:0}
+.faq-list summary{cursor:pointer;list-style:none;position:relative;padding:20px 42px 20px 0;color:var(--green);font-size:14px;font-weight:600}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:after{content:'+';position:absolute;right:7px;top:14px;font-size:24px;color:#92713b;font-weight:400}
+.faq-list details[open] summary:after{content:'−'}
+.faq-list details p{max-width:780px;margin:0;padding:0 35px 20px 0;color:var(--muted);font-size:12px;line-height:1.8}
+.footer-top{color:#e4c982;font-size:11px;text-decoration:none;white-space:nowrap}
+.footer-top:hover{text-decoration:underline}
+@media(max-width:900px){.detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.insight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.detail-grid,.insight-grid{grid-template-columns:1fr}.detail-grid article,.insight-grid article{padding:22px}.footer-top{display:block}}

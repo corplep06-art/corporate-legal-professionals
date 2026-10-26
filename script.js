@@ -41,3 +41,18 @@ document.getElementById("contact-form").addEventListener("submit", (event) => {
     "Your email application should open with the enquiry prepared. Please send it from your email app.";
   window.location.href = `mailto:corplep06@gmail.com?subject=${subject}&body=${body}`;
 });
+
+
+// Preselect an enquiry topic when visitors choose a service pathway.
+document.querySelectorAll('[data-topic]').forEach((link) => {
+  link.addEventListener('click', () => {
+    const topic = document.getElementById('topic');
+    const message = document.getElementById('message');
+    if (topic && message) {
+      const wanted = link.getAttribute('data-topic');
+      const option = Array.from(topic.options).find((item) => item.text.toLowerCase().includes(wanted.toLowerCase().split(' ')[0]));
+      if (option) topic.value = option.value;
+      if (!message.value.trim()) message.value = `I would like to enquire about ${wanted}.`;
+    }
+  });
+});

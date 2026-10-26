@@ -1,58 +1,44 @@
-// Mobile navigation
-const menuButton = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".nav");
-
-menuButton.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-  menuButton.textContent = open ? "×" : "☰";
-});
-
-nav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open navigation");
-    menuButton.textContent = "☰";
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.querySelector('.main-nav');
+const servicesDropdown = document.querySelector('.nav-dropdown');
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener('click', () => {
+    const open = mainNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    menuToggle.textContent = open ? '×' : '☰';
   });
-});
-
-// Current year in the footer
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Static-site contact form: prepare a message in the visitor's email app.
-// This does not transmit or store submissions by itself.
-document.getElementById("contact-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const data = new FormData(form);
-  const name = String(data.get("name")).trim();
-  const email = String(data.get("email")).trim();
-  const topic = String(data.get("topic"));
-  const message = String(data.get("message")).trim();
-
-  const subject = encodeURIComponent(`Website enquiry: ${topic}`);
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nArea of enquiry: ${topic}\n\nMessage:\n${message}`
-  );
-
-  document.getElementById("form-status").textContent =
-    "Your email application should open with the enquiry prepared. Please send it from your email app.";
-  window.location.href = `mailto:corplep06@gmail.com?subject=${subject}&body=${body}`;
-});
-
-
-// Preselect an enquiry topic when visitors choose a service pathway.
-document.querySelectorAll('[data-topic]').forEach((link) => {
-  link.addEventListener('click', () => {
-    const topic = document.getElementById('topic');
-    const message = document.getElementById('message');
-    if (topic && message) {
-      const wanted = link.getAttribute('data-topic');
-      const option = Array.from(topic.options).find((item) => item.text.toLowerCase().includes(wanted.toLowerCase().split(' ')[0]));
-      if (option) topic.value = option.value;
-      if (!message.value.trim()) message.value = `I would like to enquire about ${wanted}.`;
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 820 && !link.classList.contains('nav-services')) {
+        mainNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      }
+    });
+  });
+}
+const servicesLink = document.querySelector('.nav-services');
+if (servicesLink && servicesDropdown) {
+  servicesLink.addEventListener('click', (event) => {
+    if (window.innerWidth <= 820) {
+      event.preventDefault();
+      servicesDropdown.classList.toggle('expanded');
     }
   });
-});
+}
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const subject = `Website enquiry: ${data.get('service')}`;
+    const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nArea of assistance: ${data.get('service')}\n\nDescription:\n${data.get('message')}\n\nSent via www.corplep.in`;
+    const mailto = `mailto:corplep06@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const status = document.getElementById('form-status');
+    if (status) status.textContent = 'Opening your email application. Please review and send the prepared message there.';
+    window.location.href = mailto;
+  });
+}
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();

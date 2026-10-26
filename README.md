@@ -1,26 +1,22 @@
-# Corporate & Legal Professionals LLP — Website Starter
+# CORP LEP — Website Upgrade
 
-A responsive, single-page business website using plain HTML, CSS and JavaScript, ready to publish with GitHub Pages.
+Responsive static website for Corporate & Legal Professionals LLP.
 
-## Included
-- `index.html` — home, firm overview, services, approach, partner profiles and contact details
+## Files
+- `index.html` — page content and sections
 - `style.css` — responsive styling
-- `script.js` — mobile menu, footer year and email-based contact form
+- `script.js` — mobile navigation, contact email preparation, current year
+- `CNAME` — GitHub Pages custom domain (`www.corplep.in`)
 
-## Publish on GitHub Pages
+## Publish with GitHub Pages
 1. Download and extract the ZIP.
-2. Create a GitHub repository, for example `corporate-legal-professionals`.
-3. Upload `index.html`, `style.css`, `script.js`, and `README.md` to the repository root.
-4. Open **Settings → Pages**.
-5. Under Build and deployment, select **Deploy from a branch**, branch `main`, folder `/(root)`, then save.
-6. Wait for deployment and open the URL shown in Pages settings.
+2. Open the existing repository used for GitHub Pages.
+3. Upload `index.html`, `style.css`, `script.js`, and `CNAME` to the repository root, replacing matching files.
+4. Commit changes and wait for the Pages deployment to finish.
+5. Do not change GoDaddy DNS if the domain is already working.
 
-## Before going live
-- Check all firm details, phone numbers, office addresses and partner biographies carefully.
-- Add approved partner portraits and the firm's logo if available.
-- Replace the sample hero background photo with a licensed image or a photo the firm owns.
-- Consider adding a privacy notice and any professional disclosures the firm requires.
-- Test on phones and desktops.
-- The contact form opens the visitor's email application. It does not store or send submissions through a website backend. For online submissions, integrate a form provider or backend.
-
-This is a new design based on the firm's supplied profile content, not a copy of another website's branding or code.
+## Notes
+- The contact form prepares an email via the visitor's default email application; it does not store form submissions or send them to a server.
+- Insights are general educational topics, not current regulatory updates or legal advice.
+- Verify service scope, professional details, contact numbers, applicable professional advertising rules, and any legal disclaimers before publishing.
+- The reference website was used for broad structure (service categories, blog/updates, FAQs and contact navigation); all copy here is newly written for CORP LEP.
